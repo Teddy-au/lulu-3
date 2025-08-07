@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Ti 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      color: pink;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px hotpink;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: hotpink;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px pink;
+    }
+
+    #mensaje {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #ff69b4;
+      text-shadow: 0 0 10px pink;
+      max-width: 90%;
+    }
+
+    .corazon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: flotar 5s linear infinite;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazon::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hola mi amor 💕</h1>
+  <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+  <p id="mensaje">
+    No sé cómo explicar lo especial que eres para mí.  
+    Te conocí en el free, sin imaginar que esa conversación iba a cambiar tantas cosas.  
+    Ahora hablamos todos los días por WhatsApp, y siento que te fuiste metiendo en mi corazón.  
+    eres de Argentina, yo de otro rincón… pero eso no impide que te piense todo el tiempo.  
+    Esta página la hice con todo mi cariño, solo para vos.  
+    Porque te quiero mucho… y cada corazón que ves caer, es un "te quiero" que te mando. 💘
+  </p>
+
+  <script>
+    function mostrarMensaje() {
+      document.getElementById("mensaje").style.display = "block";
+    }
+
+    // Lluvia de corazones
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.top = "100vh";
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 5000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+</body>
+</html>
