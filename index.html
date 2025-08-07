@@ -2,97 +2,125 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para Vos 💖</title>
+  <title>Para Ti 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
-      background: linear-gradient(135deg, #330033, #660066);
       overflow: hidden;
-      font-family: "Courier New", monospace;
+      background-color: #2a003f; /* Fondo morado oscuro */
       color: pink;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px hotpink;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: hotpink;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px pink;
+    }
+
+    #mensaje {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #ffb6e6;
+      text-shadow: 0 0 10px pink;
+      max-width: 90%;
     }
 
     .corazon {
       position: absolute;
-      animation: flotar 10s linear infinite;
-      color: red;
-      font-size: 20px;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: flotar 5s linear infinite;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazon::after {
+      left: -10px;
+      top: 0;
     }
 
     @keyframes flotar {
       0% {
-        bottom: -50px;
-        left: calc(100% * var(--i));
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
       }
       100% {
-        bottom: 100%;
-        left: calc(100% * var(--i));
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
       }
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 3em;
-      color: #ffb6c1;
-      text-shadow: 0 0 10px pink;
-    }
-
-    #mensaje {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px 40px;
-      background-color: #ffc0cb;
-      color: black;
-      font-size: 1.2em;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: top 0.2s, left 0.2s;
-      box-shadow: 0 0 10px white;
-    }
-
-    audio {
-      display: none;
     }
   </style>
 </head>
 <body>
-
-  <h1>💖 Para vos, mi amor 💖</h1>
-  <div id="mensaje">Haz clic aquí</div>
-
-  <audio autoplay loop>
-    <source src="https://voca.ro/16fmKf2Chjhc.mp3" type="audio/mp3">
-    Tu navegador no soporta audio HTML5.
-  </audio>
+  <h1>Hola mi amor 💕</h1>
+  <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
+  <p id="mensaje">
+    No sé cómo explicar lo especial que sos para mí.  
+    Te conocí en un juego, sin imaginar que esa conversación iba a cambiar tantas cosas.  
+    Ahora hablamos todos los días por WhatsApp, y siento que te fuiste metiendo en mi corazón.  
+    Sos de Argentina, yo de otro rincón… pero eso no impide que te piense todo el tiempo.  
+    Esta página la hice con todo mi cariño, solo para vos.  
+    Porque te quiero mucho… y cada corazón que ves caer, es un "te quiero" que te mando. 💘  
+    <br><br>
+    — <strong>Teddy, con mucho amor 💖</strong>
+  </p>
 
   <script>
-    const mensaje = document.getElementById("mensaje");
-    mensaje.addEventListener("mouseover", () => {
-      const x = Math.random() * (window.innerWidth - mensaje.clientWidth);
-      const y = Math.random() * (window.innerHeight - mensaje.clientHeight);
-      mensaje.style.left = x + "px";
-      mensaje.style.top = y + "px";
-    });
-
-    mensaje.addEventListener("click", () => {
-      mensaje.innerText = "Desde que te conocí en ese juego, no he dejado de pensar en vos 💕. Hoy sos parte de mi vida, aunque estemos lejos. Gracias por ser tan especial. Te quiero, Argentina hermosa 💌.";
-    });
-
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement("div");
-      heart.className = "corazon";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 5 + Math.random() * 5 + "s";
-      heart.style.setProperty('--i', Math.random());
-      heart.innerText = "❤️";
-      document.body.appendChild(heart);
+    function mostrarMensaje() {
+      document.getElementById("mensaje").style.display = "block";
     }
+
+    // Lluvia de corazones
+    function crearCorazon() {
+      const corazon = document.createElement("div");
+      corazon.classList.add("corazon");
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.top = "100vh";
+      document.body.appendChild(corazon);
+      setTimeout(() => corazon.remove(), 5000);
+    }
+
+    setInterval(crearCorazon, 300);
   </script>
+  <audio autoplay loop>
+  <source src="musica.mp3" type="audio/mp3">
+  Tu navegador no soporta audio HTML5.
+</audio>
 
 </body>
 </html>
