@@ -100,25 +100,27 @@
     — <strong>Teddy, con mucho amor 💖</strong>
   </p>
 
-  <script>
-    function mostrarMensaje() {
-      document.getElementById("mensaje").style.display = "block";
-    }
+<script>
+  function mostrarMensaje() {
+    document.getElementById("mensaje").style.display = "block";
+    document.getElementById("musica").play();
+  }
 
-    // Lluvia de corazones
-    function crearCorazon() {
-      const corazon = document.createElement("div");
-      corazon.classList.add("corazon");
-      corazon.style.left = Math.random() * 100 + "vw";
-      corazon.style.top = "100vh";
-      document.body.appendChild(corazon);
-      setTimeout(() => corazon.remove(), 5000);
-    }
+  // Lluvia de corazones
+  function crearCorazon() {
+    const corazon = document.createElement("div");
+    corazon.classList.add("corazon");
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.top = "100vh";
+    document.body.appendChild(corazon);
+    setTimeout(() => corazon.remove(), 5000);
+  }
 
-    setInterval(crearCorazon, 300);
-  </script>
-  <audio autoplay loop>
-  <source src="musica.mp3" type="musica.mp3">
+  setInterval(crearCorazon, 300);
+</script>
+
+  <audio id="musica" loop>
+  <source src="musica.mp3" type="audio.mp3">
   Tu navegador no soporta audio HTML5.
 </audio>
 
