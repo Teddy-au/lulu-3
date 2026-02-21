@@ -2,127 +2,70 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Para Ti 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-      background-color: #2a003f; /* Fondo morado oscuro */
-      color: pink;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-      text-shadow: 0 0 15px hotpink;
-    }
-
-    button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background-color: hotpink;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 0 10px pink;
-    }
-
-    #mensaje {
-      display: none;
-      margin-top: 30px;
-      font-size: 1.4em;
-      color: #ffb6e6;
-      text-shadow: 0 0 10px pink;
-      max-width: 90%;
-    }
-
-    .corazon {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: flotar 5s linear infinite;
-    }
-
-    .corazon::before,
-    .corazon::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .corazon::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .corazon::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes flotar {
-      0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100vh) rotate(45deg);
-        opacity: 0;
-      }
-    }
-  </style>
+  <title>Ciberseguri | Seguridad Digital</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hola mi amor 💕</h1>
-  <button onclick="mostrarMensaje()">Haz clic aquí 💌</button>
-  <p id="mensaje">
-    No sé cómo explicar lo especial que sos para mí.  
-    Te conocí en un juego, sin imaginar que esa conversación iba a cambiar tantas cosas.  
-    Ahora hablamos todos los días por WhatsApp, y siento que te fuiste metiendo en mi corazón.  
-    Sos de Argentina, yo de otro rincón… pero eso no impide que te piense todo el tiempo.  
-    Esta página la hice con todo mi cariño, solo para vos.  
-    Porque te quiero mucho… y cada corazón que ves caer, es un "te quiero" que te mando. 💘  
-    <br><br>
-    — <strong>Teddy, con mucho amor 💖</strong>
-  </p>
+  <!-- Encabezado -->
+  <header>
+    <h1>Ciberseguri</h1>
+    <nav>
+      <ul>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<script>
-  function mostrarMensaje() {
-    document.getElementById("mensaje").style.display = "block";
-    document.getElementById("musica").play();
-  }
+  <!-- Sección de bienvenida -->
+  <section class="hero">
+    <h2>Protege tu mundo digital</h2>
+    <p>Soluciones en ciberseguridad para empresas y personas.</p>
+    <a href="#contacto" class="btn">Solicita una consulta</a>
+  </section>
 
-  // Lluvia de corazones
-  function crearCorazon() {
-    const corazon = document.createElement("div");
-    corazon.classList.add("corazon");
-    corazon.style.left = Math.random() * 100 + "vw";
-    corazon.style.top = "100vh";
-    document.body.appendChild(corazon);
-    setTimeout(() => corazon.remove(), 5000);
-  }
+  <!-- Servicios -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Auditoría de Seguridad</h3>
+        <p>Detectamos vulnerabilidades en tus sistemas.</p>
+      </div>
+      <div class="card">
+        <h3>Protección contra Phishing</h3>
+        <p>Defiende tu correo y tus datos sensibles.</p>
+      </div>
+      <div class="card">
+        <h3>Capacitación en Ciberseguridad</h3>
+        <p>Entrenamos a tu equipo para prevenir ataques.</p>
+      </div>
+    </div>
+  </section>
 
-  setInterval(crearCorazon, 300);
-</script>
+  <!-- Nosotros -->
+  <section id="nosotros">
+    <h2>Quiénes Somos</h2>
+    <p>Somos especialistas en seguridad informática con experiencia en proteger negocios y usuarios frente a amenazas digitales.</p>
+  </section>
 
-  <audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-  Tu navegador no soporta audio HTML5.
-</audio>
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <form>
+      <input type="text" placeholder="Tu nombre" required>
+      <input type="email" placeholder="Tu correo" required>
+      <textarea placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p>O escríbenos directamente por <a href="https://wa.me/519XXXXXXXX">WhatsApp</a></p>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Ciberseguri.online | Seguridad Digital</p>
+  </footer>
 </body>
 </html>
